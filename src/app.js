@@ -1,10 +1,5 @@
-const greeting = 'Hello World';
-console.log(greeting);
+//common js way NOT ES6/ES2015
+const person = require('./mymodule1'); //file uses ./   
+  //require node modules without ./ require('express')
 
-const getData = async (url) => {
-  const response = await fetch(url);
-  const result = await response.json();
-  console.log(result);
-};
-
-getData('https://jsonplaceholder.typicode.com/posts');
+console.log(person.name);
