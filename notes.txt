@@ -1,0 +1,9 @@
+MicroPosts app uses webpack and babel.
+Got webpack and babel starter template from traversey github.
+
+Babel is a toolchain thats mainly used for convert ES6 to ES5.
+Webpack is a static module bundler, when it processes app it internally builds a dependency graph which maps every module the projects needs and generates one or more bundles
+In package.json the build script runs webpack, so npm run build runs webpack.
+
+npm install         installs dependencies
+npm run build       creates build folder with bundle
