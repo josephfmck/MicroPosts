@@ -7,5 +7,7 @@ In package.json the build script runs webpack, so npm run build runs webpack.
 
 npm install         installs dependencies
 npm run build       creates build folder with bundle
+npm start           runs application
 
 Bundle in build folder contains the same js code but converted/compiled to ES5.
+In index.html our src is this bundle file.
