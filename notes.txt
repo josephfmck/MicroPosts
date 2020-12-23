@@ -11,3 +11,12 @@ npm start           runs application
 
 Bundle in build folder contains the same js code but converted/compiled to ES5.
 In index.html our src is this bundle file.
+
+
+
+npm install json-server     package.json dependency 
+json-server used for creating a fake rest API
+
+create a file custom named file db.json that will be the API
+json-server --watch db.json           will start that server/API to use
+added this command to "json:server" in "scripts" in package.json
