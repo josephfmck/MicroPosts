@@ -7,6 +7,10 @@ document.addEventListener('DOMContentLoaded', getPosts);
 //  Listen for submitting post 
 document.querySelector('.post-submit').addEventListener('click', submitPost);
 
+//  Listen for delete post
+    //event delegation so grab parent #posts
+document.querySelector('#posts').addEventListener('click', deletePost)
+
 //  Get Posts and display
 function getPosts() {
     //get returns promise, so need .then
@@ -43,4 +47,27 @@ function submitPost() {
             getPosts();
         })
         .catch(err => console.log(err));
+}
+
+//  Delete Post
+function deletePost(e) {
+    //  event delegation, check target's parent <a> has class delete
+    if(e.target.parentElement.classList.contains('delete')) {
+        //  Grab post's id from data-attr
+        const id = e.target.parentElement.dataset.id;
+
+        //  Prompt user
+        if(confirm('Are you sure?')) {
+            //  Returns promise so .then
+            //  Url with id attached
+            http.delete(`http://localhost:3000/posts/${id}`)
+                .then(data => {
+                    ui.showAlert('Post Deleted', 'alert alert-success');
+                    getPosts();
+                })
+                .catch(err => console.log(err));
+        }
+    }
+
+    e.preventDefault();
 }
