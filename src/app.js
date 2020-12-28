@@ -93,7 +93,8 @@ function enableEditState(e) {
             body: body
         }
 
-        
+        //  Fill form with current post
+        ui.fillForm(data);
     }
 
 

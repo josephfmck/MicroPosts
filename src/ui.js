@@ -9,6 +9,7 @@ class UI {
         this.formState = 'add';
     }
 
+    //  Display all posts
     showPosts(posts) {
         let output = '';
 
@@ -34,6 +35,7 @@ class UI {
         this.post.innerHTML = output;
     }
 
+    //  Show alert div
     showAlert(msg, classNames) {
         this.clearAlert();
 
@@ -60,6 +62,7 @@ class UI {
         }, 3000);
     }
 
+    //  Clear alert div
     clearAlert() {
         //  Grab alert
         const currentAlert = document.querySelector('.alert');
@@ -69,9 +72,19 @@ class UI {
         }
     }
 
+    //  Clear all form fields
     clearFields() {
         this.titleInput.value = '';
         this.bodyInput.value = '';
+    }
+
+    //  Fill form to edit
+    fillForm(data) {
+        //  Set form fields to data props
+        this.titleInput.value = data.title;
+        this.bodyInput.value = data.body;
+        //idInput is hidden 
+        this.idInput.value = data.id;
     }
 }
 
