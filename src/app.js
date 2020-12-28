@@ -32,6 +32,13 @@ function submitPost() {
         //post request gives us a promise so .then
     http.post('http://localhost:3000/posts', data)
         .then(data => {
+            //  Alert post created  
+                //msg, classes
+            ui.showAlert('Post added', 'alert alert-success');
+
+            //  Clear form fields
+            ui.clearFields();
+
             //  Call to display with new post
             getPosts();
         })
