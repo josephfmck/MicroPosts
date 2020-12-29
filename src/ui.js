@@ -5,7 +5,7 @@ class UI {
         this.titleInput = document.querySelector('#title');
         this.bodyInput = document.querySelector('#body');
         this.idInput = document.querySelector('#id');
-        this.postsSubmit = document.querySelector('.post-submit');
+        this.postSubmit = document.querySelector('.post-submit');
         this.postsContainer = document.querySelector('.postsContainer');
         this.formState = 'add';
     }
@@ -86,6 +86,23 @@ class UI {
         this.bodyInput.value = data.body;
         //idInput is hidden 
         this.idInput.value = data.id;
+
+
+        //  Change form state to edit
+        this.changeFormState('edit');
+    }
+
+    //  Change the form state
+    changeFormState(stateType) {
+        //  If edit state
+        if(stateType === 'edit') {
+            //  Change btn text 
+            this.postSubmit.textContent = 'Update Post';
+            //  Change color with class, needs default classes since reassigning all classes
+            this.postSubmit.className = 'post-submit btn btn-warning btn-block';
+        } else {
+
+        }
     }
 }
 
