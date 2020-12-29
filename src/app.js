@@ -9,11 +9,11 @@ document.querySelector('.post-submit').addEventListener('click', submitPost);
 
 //  Listen for delete post
     //event delegation so grab parent #posts
-document.querySelector('#posts').addEventListener('click', deletePost);
+document.querySelector('#postsList').addEventListener('click', deletePost);
 
 //  Listen for Edit State
     //event delegation
-document.querySelector('#posts').addEventListener('click', enableEditState)
+document.querySelector('#postsList').addEventListener('click', enableEditState)
 
 //  Get Posts and display
 function getPosts() {
@@ -93,7 +93,7 @@ function enableEditState(e) {
             body: body
         }
 
-        //  Fill form with current post
+        //  Fill form values with current post
         ui.fillForm(data);
     }
 

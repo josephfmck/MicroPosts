@@ -1,11 +1,12 @@
 class UI {
     constructor() {
         //props of this class
-        this.post = document.querySelector('#posts');
+        this.postsList = document.querySelector('#postsList');
         this.titleInput = document.querySelector('#title');
         this.bodyInput = document.querySelector('#body');
         this.idInput = document.querySelector('#id');
         this.postsSubmit = document.querySelector('.post-submit');
+        this.postsContainer = document.querySelector('.postsContainer');
         this.formState = 'add';
     }
 
@@ -32,7 +33,7 @@ class UI {
         });
 
         //append to ui 
-        this.post.innerHTML = output;
+        this.postsList.innerHTML = output;
     }
 
     //  Show alert div
@@ -48,9 +49,9 @@ class UI {
 
         //  Add to DOM
         //  Get parent
-        const container = document.querySelector('.postsContainer');
+        const container = this.postsContainer;
         //  Get posts
-        const posts = document.querySelector('#posts');
+        const posts = this.postsList;
         //  Insert alert div
             //within container 
             //insert div before the posts
