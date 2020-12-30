@@ -29,28 +29,35 @@ function submitPost() {
     const title = document.querySelector('#title').value;
     const body = document.querySelector('#body').value;
 
-    // create data obj with props = to values grabbed
-    const data = {
-        title: title,
-        body: body
+    //  Check form fields filled
+    if(title === '' || body === '') {
+        ui.showAlert('Please fill in all fields', 'alert alert-danger');
+    } else {
+
+        // create data obj with props = to values grabbed
+        const data = {
+            title: title,
+            body: body
+        }
+
+        //  Create Post
+            //  Gets added to db.json
+            //post request gives us a promise so .then
+        http.post('http://localhost:3000/posts', data)
+            .then(data => {
+                //  Alert post created  
+                    //msg, classes
+                ui.showAlert('Post added', 'alert alert-success');
+
+                //  Clear form fields
+                ui.clearFields();
+
+                //  Call to display with new post
+                getPosts();
+            })
+            .catch(err => console.log(err));
+
     }
-
-    //  Create Post
-        //  Gets added to db.json
-        //post request gives us a promise so .then
-    http.post('http://localhost:3000/posts', data)
-        .then(data => {
-            //  Alert post created  
-                //msg, classes
-            ui.showAlert('Post added', 'alert alert-success');
-
-            //  Clear form fields
-            ui.clearFields();
-
-            //  Call to display with new post
-            getPosts();
-        })
-        .catch(err => console.log(err));
 }
 
 //  Delete Post
