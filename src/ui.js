@@ -100,6 +100,22 @@ class UI {
             this.postSubmit.textContent = 'Update Post';
             //  Change color with class, needs default classes since reassigning all classes
             this.postSubmit.className = 'post-submit btn btn-warning btn-block';
+
+            //  Create cancel button
+            const button = document.createElement('button');
+            //  Add classes
+            button.className = 'post-cancel btn btn-block';
+            //  Add text
+            button.appendChild(document.createTextNode('Cancel Edit'));
+
+            //  Insert button
+            //  Get Parent
+            const cardForm = document.querySelector('.card-form');
+            //  Get element to insert before
+            const formEnd = document.querySelector('.form-end');
+            //  Insert cancel btn before formEnd
+            cardForm.insertBefore(button, formEnd);
+
         } else {
 
         }
