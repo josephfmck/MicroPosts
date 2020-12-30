@@ -32,35 +32,45 @@ function submitPost() {
     //  get form data
     const title = document.querySelector('#title').value;
     const body = document.querySelector('#body').value;
+    //  Hidden ID form input
+    const id = document.querySelector('#id').value;
 
-    //  Check form fields filled
+    //  Validate Inputs
     if(title === '' || body === '') {
         ui.showAlert('Please fill in all fields', 'alert alert-danger');
     } else {
+        
+        //If no ID val in hidden input: add state
+        //If ID val in hidden input: edit state
+        //  Check for ID 
+        if(id === '') {
+            //*ADD STATE
+            // create data obj with props = to values grabbed
+            const data = {
+                title: title,
+                body: body
+            }
 
-        // create data obj with props = to values grabbed
-        const data = {
-            title: title,
-            body: body
+            //  Create Post
+                //  Gets added to db.json
+                //post request gives us a promise so .then
+            http.post('http://localhost:3000/posts', data)
+                .then(data => {
+                    //  Alert post created  
+                        //msg, classes
+                    ui.showAlert('Post added', 'alert alert-success');
+
+                    //  Clear form fields
+                    ui.clearFields();
+
+                    //  Call to display with new post
+                    getPosts();
+                })
+                .catch(err => console.log(err));
+        } else {
+            //*EDIT STATE
+            
         }
-
-        //  Create Post
-            //  Gets added to db.json
-            //post request gives us a promise so .then
-        http.post('http://localhost:3000/posts', data)
-            .then(data => {
-                //  Alert post created  
-                    //msg, classes
-                ui.showAlert('Post added', 'alert alert-success');
-
-                //  Clear form fields
-                ui.clearFields();
-
-                //  Call to display with new post
-                getPosts();
-            })
-            .catch(err => console.log(err));
-
     }
 }
 
