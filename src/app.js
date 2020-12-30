@@ -69,7 +69,21 @@ function submitPost() {
                 .catch(err => console.log(err));
         } else {
             //*EDIT STATE
+            //  Update Post
+                //put request gives us a promise so .then
+                http.put(`http://localhost:3000/posts/${id}`, data)
+                .then(data => {
+                    //  Alert post update
+                        //msg, classes
+                    ui.showAlert('Post updated', 'alert alert-success');
 
+                    //  Change formState back to Add
+                    ui.changeFormState('add');
+
+                    //  Call to display with updated post
+                    getPosts();
+                })
+                .catch(err => console.log(err));
         }
     }
 }
