@@ -1,6 +1,6 @@
 # MicroPosts
 
-A project utilizing webpack and Babel to create CRUD front-end based application.
+A project utilizing webpack and Babel to create CRUD front-end based application. Uses a fake REST API using json-server for database storage.
 
 
 # Utilizes Babel Webpack Starter
