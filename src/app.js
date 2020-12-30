@@ -13,7 +13,11 @@ document.querySelector('#postsList').addEventListener('click', deletePost);
 
 //  Listen for Edit State
     //event delegation
-document.querySelector('#postsList').addEventListener('click', enableEditState)
+document.querySelector('#postsList').addEventListener('click', enableEditState);
+
+//  Listen for Cancel edit btn
+    //event delegation
+document.querySelector('.card-form').addEventListener('click', cancelEditState);
 
 //  Get Posts and display
 function getPosts() {
@@ -104,6 +108,16 @@ function enableEditState(e) {
         ui.fillForm(data);
     }
 
+
+    e.preventDefault();
+}
+
+//  Cancel Edit State
+function cancelEditState(e) {
+    //  Check target has '.post-cancel'
+    if(e.target.classList.contains('post-cancel')) {
+        ui.changeFormState('add');
+    }
 
     e.preventDefault();
 }
