@@ -35,6 +35,12 @@ function submitPost() {
     //  Hidden ID form input
     const id = document.querySelector('#id').value;
 
+    // create data obj with props = to values grabbed
+    const data = {
+        title: title,
+        body: body
+    }
+
     //  Validate Inputs
     if(title === '' || body === '') {
         ui.showAlert('Please fill in all fields', 'alert alert-danger');
@@ -45,12 +51,6 @@ function submitPost() {
         //  Check for ID 
         if(id === '') {
             //*ADD STATE
-            // create data obj with props = to values grabbed
-            const data = {
-                title: title,
-                body: body
-            }
-
             //  Create Post
                 //  Gets added to db.json
                 //post request gives us a promise so .then
@@ -69,7 +69,7 @@ function submitPost() {
                 .catch(err => console.log(err));
         } else {
             //*EDIT STATE
-            
+
         }
     }
 }
