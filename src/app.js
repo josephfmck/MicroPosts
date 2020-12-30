@@ -71,6 +71,7 @@ function submitPost() {
             //*EDIT STATE
             //  Update Post
                 //put request gives us a promise so .then
+                //id grabbed from hidden ID input
                 http.put(`http://localhost:3000/posts/${id}`, data)
                 .then(data => {
                     //  Alert post update

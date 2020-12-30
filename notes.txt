@@ -24,3 +24,10 @@ added this command to "json:server" in "scripts" in package.json
 npm run json-server             to start API server in a 2nd terminal
 
 now have 2 terminals running, one for the app (npm start) localhost:8080, and one for the API (npm run json-server) localhost:3000
+
+
+ONCE CODE FINALIZED
+COMPILE EVERYTHING TO BUILD FOLDER
+Build file is Production file 
+Production file is what you want upload to server.
+npm run build 
